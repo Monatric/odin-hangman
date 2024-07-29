@@ -1,0 +1,3 @@
+Hangman is a game about guessing the letters and the secret word as a whole. If the guesser fails to find the correct word in a given amount of attempts, the man will 💀
+
+The game starts with a bunch of underscores indicating a missing letter. The guesser has to fill in the blanks, but only up to 8 fails. If the letter exists in the secret word, the blanks are filled according to the letter. The player must guess all the correct letters to win. However, if the letter does not exist, that is 1 fail. As you guess it, if it reaches 8 fails, the game ends and the player lose.
