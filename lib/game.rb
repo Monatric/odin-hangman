@@ -47,6 +47,11 @@ class Game
       puts "That's not a letter."
       user_guess = gets.chomp
     end
+    if secret_word_blank.any? { |e| e == user_guess }
+      puts "Already exists. Try another letter."
+      user_guess = gets.chomp
+    end
+
     insert_letter(user_guess)
   end
 
