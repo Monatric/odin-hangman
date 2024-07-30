@@ -63,7 +63,7 @@ class Game
         is_correct = true
       elsif secret_word_reference.size - 1 == index && is_correct == false
         self.attempts -= 1
-        puts "Letter does not exist! Try again."
+        display_attempts
       end
     end
   end
@@ -76,9 +76,14 @@ class Game
   end
 
   def display_missing_word
+    puts "\n"
     secret_word_blank.each_with_index do |element, index|
       print "#{element} "
       puts "\nEnter a letter for your guess.\n" if secret_word_blank.size - 1 == index
     end
+  end
+
+  def display_attempts
+    puts "Letter does not exist! Try again.\tAttempts left: #{attempts}"
   end
 end
