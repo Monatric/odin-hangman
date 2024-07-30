@@ -6,4 +6,6 @@ class Game
   initialize 
     secret_word as string
     
-  
+~~~~~~~
+map the secret_word_reference
+  if the user_guess matches a letter, place a letter on that index in secret_word_blank
