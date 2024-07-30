@@ -16,15 +16,28 @@ class Game
     start_game
   end
 
-  attr_accessor :is_finished
+  attr_accessor :is_finished, :attempts
   attr_reader :secret_word, :guess, :secret_word_blank, :dictionary, :secret_word_reference
 
   def start_game
     puts "Welcome! Try to guess the word."
     set_up_interface
     until is_finished == true
+      check_winner
+      break if is_finished == true
+
       take_user_guess
       display_missing_word
+    end
+  end
+
+  def check_winner
+    if secret_word_blank == secret_word_reference
+      puts "Winner!"
+      self.is_finished = true
+    elsif attempts.zero?
+      puts "LOser"
+      self.is_finished = true
     end
   end
 
@@ -44,6 +57,7 @@ class Game
         secret_word_blank[index] = user_guess
         is_correct = true
       elsif secret_word_reference.size - 1 == index && is_correct == false
+        self.attempts -= 1
         puts "Letter does not exist! Try again."
       end
     end
