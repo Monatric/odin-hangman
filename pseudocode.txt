@@ -1,0 +1,9 @@
+Objects in Hangman
+  - player
+  - word, missing word, underscores/lines
+
+class Game
+  initialize 
+    secret_word as string
+    
+  
