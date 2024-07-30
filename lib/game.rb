@@ -43,15 +43,15 @@ class Game
   end
 
   def take_user_guess
-    user_guess = gets.chomp
+    user_guess = gets.chomp.downcase
     until user_guess.match?(/^[A-Za-z]+$/)
       puts "That's not a letter."
-      user_guess = gets.chomp
+      user_guess = gets.chomp.downcase
     end
 
     while chosen_letters.include?(user_guess)
       print "Already chosen. Try another letter: "
-      user_guess = gets.chomp
+      user_guess = gets.chomp.downcase
     end
 
     chosen_letters << user_guess
