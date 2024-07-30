@@ -9,6 +9,7 @@ class Game
     @secret_word_reference = secret_word.chars
     @guess = []
     @attempts = 8
+    @chosen_letters = []
     @is_finished = false
 
     p secret_word_reference
@@ -17,7 +18,7 @@ class Game
   end
 
   attr_accessor :is_finished, :attempts
-  attr_reader :secret_word, :guess, :secret_word_blank, :dictionary, :secret_word_reference
+  attr_reader :secret_word, :guess, :secret_word_blank, :dictionary, :secret_word_reference, :chosen_letters
 
   def start_game
     puts "Welcome! Try to guess the word."
@@ -47,11 +48,13 @@ class Game
       puts "That's not a letter."
       user_guess = gets.chomp
     end
-    if secret_word_blank.any? { |e| e == user_guess }
-      puts "Already exists. Try another letter."
+
+    while chosen_letters.include?(user_guess)
+      print "Already chosen. Try another letter: "
       user_guess = gets.chomp
     end
 
+    chosen_letters << user_guess
     insert_letter(user_guess)
   end
 
@@ -79,7 +82,7 @@ class Game
     puts "\n"
     secret_word_blank.each_with_index do |element, index|
       print "#{element} "
-      puts "\nEnter a letter for your guess.\n" if secret_word_blank.size - 1 == index
+      print "\nEnter a letter for your guess: " if secret_word_blank.size - 1 == index
     end
   end
 
