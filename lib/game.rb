@@ -26,16 +26,25 @@ class Game
     continue_round
   end
 
-  def load_game
-    data = YAML.load_file("saved_file.yml")
-    self.secret_word = data[:secret_word]
-    self.secret_word_blank = data[:secret_word_blank]
-    self.secret_word_reference = data[:secret_word_reference]
-    self.attempts = data[:attempts]
-    self.chosen_letters = data[:chosen_letters]
-    self.is_finished = data[:is_finished]
-    display_missing_word
+  def self.load_game
+    YAML.load_file("saved_file.yml", permitted_classes: [Game, Symbol])
+
+    # display_missing_word(secret_word_blank)
+    # continue_round
+  end
+
+  def continue_last_round
+    display_missing_word(secret_word_blank)
     continue_round
+  end
+
+  def continue_round
+    until is_finished == true
+      check_winner
+
+      take_user_guess
+      display_missing_word(secret_word_blank)
+    end
   end
 
   private
@@ -44,26 +53,10 @@ class Game
                 :chosen_letters
 
   def save_game
-    yaml = YAML.dump({
-                       secret_word: secret_word,
-                       secret_word_blank: secret_word_blank,
-                       secret_word_reference: secret_word_reference,
-                       attempts: attempts,
-                       chosen_letters: chosen_letters,
-                       is_finished: is_finished
-                     })
+    yaml = YAML.dump(self, permitted_classes: [Game])
     File.write("saved_file.yml", yaml)
     puts "Thanks for playing! Come again next time."
     exit
-  end
-
-  def continue_round
-    until is_finished == true
-      check_winner
-
-      take_user_guess
-      display_missing_word
-    end
   end
 
   def check_winner
@@ -120,6 +113,6 @@ class Game
     secret_word.length.times do
       secret_word_blank.push("⎯")
     end
-    display_missing_word
+    display_missing_word(secret_word_blank)
   end
 end

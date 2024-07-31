@@ -3,7 +3,7 @@ module Displayable
     puts "Welcome! Try to guess the word."
   end
 
-  def display_missing_word
+  def display_missing_word(secret_word_blank)
     puts "\n"
     secret_word_blank.each_with_index do |element, index|
       break if check_winner == true

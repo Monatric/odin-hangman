@@ -1,4 +1,5 @@
 require_relative "game"
+require_relative "displayable"
 
 puts "Welcome to Hangman! Would you like to start a new game or continue from where you left?"
 puts "1 => New Game\n2 => Load Game"
@@ -10,5 +11,6 @@ end
 if user_choice == 1
   Game.new.start_game
 elsif user_choice == 2
-  Game.new.load_game
+  game = Game.load_game
+  game.continue_last_round
 end

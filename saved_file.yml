@@ -1,25 +1,30 @@
----
-:secret_word: before
-:secret_word_blank:
-- "⎯"
-- e
+--- !ruby/object:Game
+secret_word: robertson
+secret_word_blank:
 - "⎯"
 - o
-- r
+- "⎯"
 - e
-:secret_word_reference:
+- "⎯"
+- "⎯"
+- "⎯"
+- o
+- "⎯"
+secret_word_reference:
+- r
+- o
 - b
-- e
-- f
-- o
-- r
-- e
-:attempts: 5
-:chosen_letters:
-- a
-- w
 - e
 - r
 - t
+- s
 - o
-:is_finished: false
+- "n"
+guess: []
+attempts: 6
+chosen_letters:
+- q
+- e
+- o
+- a
+is_finished: false
