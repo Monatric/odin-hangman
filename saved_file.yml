@@ -1,0 +1,28 @@
+---
+:secret_word: exercise
+:secret_word_blank:
+- e
+- "⎯"
+- e
+- "⎯"
+- "⎯"
+- "⎯"
+- "⎯"
+- e
+:secret_word_reference:
+- e
+- x
+- e
+- r
+- c
+- i
+- s
+- e
+:guess: []
+:attempts: 5
+:chosen_letters:
+- a
+- w
+- e
+- t
+:is_finished: false

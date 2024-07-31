@@ -125,7 +125,10 @@ class Game
 
       print "#{element} "
 
-      print "\nEnter a letter for your guess: " if secret_word_blank.size - 1 == index
+      if secret_word_blank.size - 1 == index
+        puts "\n\n[Enter '1' to save your game.]"
+        print "Enter a letter for your guess: "
+      end
     end
   end
 

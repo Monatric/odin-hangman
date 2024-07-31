@@ -1,0 +1,14 @@
+---
+:characters:
+- !ruby/object:Ogre
+  strength: 15
+  speed: 25
+  smell: stink
+- !ruby/object:Dragon
+  strength: 10
+  speed: 30
+  color: red
+- !ruby/object:Fairy
+  strength: 1
+  speed: 42
+  intelligence: 50
