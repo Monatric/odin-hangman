@@ -1,4 +1,5 @@
 require "pry-byebug"
+require "yaml"
 
 # game
 class Game
@@ -33,6 +34,20 @@ class Game
     end
   end
 
+  def save_game
+    yaml = YAML.dump({
+                       secret_word: secret_word,
+                       secret_word_blank: secret_word_blank,
+                       secret_word_reference: secret_word_reference,
+                       guess: guess,
+                       attempts: attempts,
+                       chosen_letters: chosen_letters,
+                       is_finished: is_finished
+                     })
+    File.write("saved_file.yml", yaml)
+    exit
+  end
+
   def check_winner
     if secret_word_blank == secret_word_reference
       puts "The word is #{secret_word}"
@@ -48,6 +63,7 @@ class Game
 
   def take_user_guess
     user_guess = gets.chomp.downcase
+    save_game if user_guess == "1"
     until user_guess.match?(/^[A-Za-z]+$/)
       puts "That's not a letter."
       user_guess = gets.chomp.downcase
