@@ -20,12 +20,7 @@ class Game
   def start_game
     puts "Welcome! Try to guess the word."
     set_up_interface
-    until is_finished == true
-      check_winner
-
-      take_user_guess
-      display_missing_word
-    end
+    continue_round
   end
 
   def load_game
@@ -38,13 +33,7 @@ class Game
     self.chosen_letters = data[:chosen_letters]
     self.is_finished = data[:is_finished]
     display_missing_word
-
-    until is_finished == true
-      check_winner
-
-      take_user_guess
-      display_missing_word
-    end
+    continue_round
   end
 
   private
@@ -64,6 +53,15 @@ class Game
                      })
     File.write("saved_file.yml", yaml)
     exit
+  end
+
+  def continue_round
+    until is_finished == true
+      check_winner
+
+      take_user_guess
+      display_missing_word
+    end
   end
 
   def check_winner

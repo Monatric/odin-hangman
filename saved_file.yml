@@ -1,28 +1,28 @@
 ---
-:secret_word: exercise
+:secret_word: asylum
 :secret_word_blank:
-- e
-- "⎯"
-- e
-- "⎯"
-- "⎯"
-- "⎯"
-- "⎯"
-- e
-:secret_word_reference:
-- e
-- x
-- e
-- r
-- c
-- i
-- s
-- e
-:guess: []
-:attempts: 5
-:chosen_letters:
 - a
-- w
-- e
-- t
+- "⎯"
+- "⎯"
+- l
+- "⎯"
+- "⎯"
+:secret_word_reference:
+- a
+- s
+- "y"
+- l
+- u
+- m
+:guess: []
+:attempts: 2
+:chosen_letters:
+- l
+- eo
+- p
+- i
+- a
+- x
+- c
+- v
 :is_finished: false
