@@ -1,8 +1,11 @@
 require "pry-byebug"
 require "yaml"
+require_relative "displayable"
 
 # game
 class Game
+  include Displayable
+
   DICTIONARY = File.readlines("dictionary.txt")
 
   def initialize
@@ -18,7 +21,7 @@ class Game
   end
 
   def start_game
-    puts "Welcome! Try to guess the word."
+    display_welcome
     set_up_interface
     continue_round
   end
@@ -52,6 +55,7 @@ class Game
                        is_finished: is_finished
                      })
     File.write("saved_file.yml", yaml)
+    puts "Thanks for playing! Come again next time."
     exit
   end
 
@@ -119,23 +123,5 @@ class Game
       secret_word_blank.push("⎯")
     end
     display_missing_word
-  end
-
-  def display_missing_word
-    puts "\n"
-    secret_word_blank.each_with_index do |element, index|
-      break if check_winner == true
-
-      print "#{element} "
-
-      if secret_word_blank.size - 1 == index
-        puts "\n\n[Enter '1' to save your game.]"
-        print "Enter a letter for your guess: "
-      end
-    end
-  end
-
-  def display_attempts
-    puts "Letter does not exist! Try again.\tAttempts left: #{attempts}"
   end
 end
