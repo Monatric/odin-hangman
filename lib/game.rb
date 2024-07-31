@@ -28,9 +28,6 @@ class Game
 
   def self.load_game
     YAML.load_file("saved_file.yml", permitted_classes: [Game, Symbol])
-
-    # display_missing_word(secret_word_blank)
-    # continue_round
   end
 
   def continue_last_round
