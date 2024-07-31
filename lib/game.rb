@@ -15,13 +15,7 @@ class Game
     @attempts = 8
     @chosen_letters = []
     @is_finished = false
-    start_game
   end
-
-  private
-
-  attr_accessor :is_finished, :attempts
-  attr_reader :secret_word, :guess, :secret_word_blank, :dictionary, :secret_word_reference, :chosen_letters
 
   def start_game
     puts "Welcome! Try to guess the word."
@@ -33,6 +27,30 @@ class Game
       display_missing_word
     end
   end
+
+  def load_game
+    data = YAML.load_file("saved_file.yml")
+    self.secret_word = data[:secret_word]
+    self.secret_word_blank = data[:secret_word_blank]
+    self.secret_word_reference = data[:secret_word_reference]
+    self.guess = data[:guess]
+    self.attempts = data[:attempts]
+    self.chosen_letters = data[:chosen_letters]
+    self.is_finished = data[:is_finished]
+    display_missing_word
+
+    until is_finished == true
+      check_winner
+
+      take_user_guess
+      display_missing_word
+    end
+  end
+
+  private
+
+  attr_accessor :is_finished, :attempts, :secret_word, :guess, :secret_word_blank, :dictionary, :secret_word_reference,
+                :chosen_letters
 
   def save_game
     yaml = YAML.dump({
