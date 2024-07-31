@@ -1,28 +1,25 @@
 ---
-:secret_word: limited
+:secret_word: before
 :secret_word_blank:
 - "⎯"
-- i
-- "⎯"
-- i
-- "⎯"
 - e
 - "⎯"
+- o
+- r
+- e
 :secret_word_reference:
-- l
-- i
-- m
-- i
-- t
+- b
 - e
-- d
-:guess: []
+- f
+- o
+- r
+- e
 :attempts: 5
 :chosen_letters:
+- a
+- w
 - e
-- '9'
-- s
-- e
+- r
+- t
 - o
-- i
 :is_finished: false

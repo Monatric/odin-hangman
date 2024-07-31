@@ -31,7 +31,6 @@ class Game
     self.secret_word = data[:secret_word]
     self.secret_word_blank = data[:secret_word_blank]
     self.secret_word_reference = data[:secret_word_reference]
-    self.guess = data[:guess]
     self.attempts = data[:attempts]
     self.chosen_letters = data[:chosen_letters]
     self.is_finished = data[:is_finished]
@@ -41,7 +40,7 @@ class Game
 
   private
 
-  attr_accessor :is_finished, :attempts, :secret_word, :guess, :secret_word_blank, :dictionary, :secret_word_reference,
+  attr_accessor :is_finished, :attempts, :secret_word, :secret_word_blank, :dictionary, :secret_word_reference,
                 :chosen_letters
 
   def save_game
@@ -49,7 +48,6 @@ class Game
                        secret_word: secret_word,
                        secret_word_blank: secret_word_blank,
                        secret_word_reference: secret_word_reference,
-                       guess: guess,
                        attempts: attempts,
                        chosen_letters: chosen_letters,
                        is_finished: is_finished
