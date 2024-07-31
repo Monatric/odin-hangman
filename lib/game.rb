@@ -80,6 +80,14 @@ class Game
   def take_user_guess
     user_guess = gets.chomp.downcase
     save_game if user_guess == "1"
+
+    validate_user_guess(user_guess)
+
+    chosen_letters << user_guess
+    insert_letter(user_guess)
+  end
+
+  def validate_user_guess(user_guess)
     until user_guess.match?(/^[A-Za-z]+$/)
       puts "That's not a letter."
       user_guess = gets.chomp.downcase
@@ -89,9 +97,6 @@ class Game
       print "Already chosen. Try another letter: "
       user_guess = gets.chomp.downcase
     end
-
-    chosen_letters << user_guess
-    insert_letter(user_guess)
   end
 
   def insert_letter(user_guess)

@@ -1,28 +1,28 @@
 ---
-:secret_word: asylum
+:secret_word: limited
 :secret_word_blank:
-- a
 - "⎯"
+- i
 - "⎯"
-- l
+- i
 - "⎯"
+- e
 - "⎯"
 :secret_word_reference:
-- a
-- s
-- "y"
 - l
-- u
-- m
-:guess: []
-:attempts: 2
-:chosen_letters:
-- l
-- eo
-- p
 - i
-- a
-- x
-- c
-- v
+- m
+- i
+- t
+- e
+- d
+:guess: []
+:attempts: 5
+:chosen_letters:
+- e
+- '9'
+- s
+- e
+- o
+- i
 :is_finished: false
